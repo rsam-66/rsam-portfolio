@@ -8,6 +8,7 @@ const projects = [
         contribution: "Front-End & Back-End Development",
         tags: ["IoT", "Arduino", "React", "Node.js"],
         github: "https://github.com/rsam-66/tavanue-final",
+        link: "https://rsam-66.github.io/tavanue-final/#/",
         gradient: "from-emerald-500 to-teal-600",
         images: [
             "/images/projects/tanavue/1.png",
@@ -21,6 +22,7 @@ const projects = [
         contribution: "Front-End & API Integration",
         tags: ["React", "REST API", "Tailwind CSS"],
         github: "https://github.com/rsam-66/technicalTest_FrontEndDev_reimarksam",
+        link: "https://rsam-66.github.io/technicalTest_FrontEndDev_reimarksam/#/",
         gradient: "from-blue-500 to-indigo-600",
         images: [
             "/images/projects/berita/web1.png",
@@ -116,15 +118,17 @@ export default function Projects() {
                                         <Github size={18} />
                                         View Code
                                     </a>
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
-                                    >
-                                        <ExternalLink size={18} />
-                                        Live Demo
-                                    </a>
+                                    {project.link && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                                        >
+                                            <ExternalLink size={18} />
+                                            Live Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>
