@@ -95,7 +95,7 @@ export default function Skills() {
                 <div className="mt-16 text-center">
                     <p className="text-sm text-slate-500 mb-6">Other technologies I've worked with:</p>
                     <div className="flex flex-wrap justify-center gap-3">
-                        {["Vue.js", "Next.js", "MongoDB", "Firebase", "Docker", "AWS", "GraphQL", "Redux", "SASS", "Webpack"].map((tech, index) => (
+                        {["Vue.js", "Next.js", "Firebase", "Docker"].map((tech, index) => (
                             <span
                                 key={index}
                                 className="px-4 py-2 bg-white border border-slate-200 text-slate-600 text-sm font-medium rounded-full hover:border-blue-300 hover:text-blue-600 transition-colors cursor-default"
