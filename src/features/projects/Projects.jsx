@@ -8,7 +8,7 @@ const projects = [
         contribution: "Front-End & Back-End Development",
         tags: ["IoT", "Arduino", "React", "Node.js"],
         github: "https://github.com/rsam-66/tavanue-final",
-        link: "https://rsam-66.github.io/tavanue-final/#/",
+        link: "",
         gradient: "from-emerald-500 to-teal-600",
         images: [
             "/images/projects/tanavue/1.png",
@@ -38,6 +38,21 @@ const projects = [
         github: "https://github.com/rsam-66/react-porto",
         gradient: "from-purple-500 to-pink-600",
         images: [] // No images for this project
+    },
+    {
+        title: "Lumira AI",
+        description: "Website analisis hasil USG Kanker berbasis Model AI. Memungkinkan dokter untuk mengubah hasil analisis GradCam dengan menggunakan Konva.js.",
+        contribution: "Front-End Development",
+        tags: ["Vue.js", "Tailwind CSS", "Vite", "Konva.js"],
+        status: "Ongoing - HUMIC Engineering Internship",
+        github: "https://github.com/rsam-66/Front-End_BreastCancer.git",
+        link: "https://lumirabreast-cancer.vercel.app/",
+        gradient: "from-purple-500 to-pink-600",
+        images: [
+            "/images/projects/lumira/1.png",
+            "/images/projects/lumira/2.png",
+            "/images/projects/lumira/3.png"
+        ]
     }
 ];
 
@@ -54,7 +69,7 @@ export default function Projects() {
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        Here are some of my recent projects that showcase my skills in web development and problem-solving.
+                        Here are some of my recent projects that showcase my skills in development and problem-solving.
                     </p>
                 </div>
 
@@ -81,6 +96,14 @@ export default function Projects() {
                                 <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                                     {project.title}
                                 </h3>
+
+                                {/* Status Badge */}
+                                {project.status && (
+                                    <span className="inline-block px-3 py-1 mb-3 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">
+                                        {project.status}
+                                    </span>
+                                )}
+
                                 <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                                     {project.description}
                                 </p>

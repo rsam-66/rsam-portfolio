@@ -15,7 +15,7 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Hi, I'm <strong>Reimark Samuel</strong>. A Software Engineering student at Telkom University passionate about Data Science and Frontend Development.
+                        Hi, I'm <strong>Reimark Samuel</strong>. A Software Engineering student at Telkom University passionate about Software Engineering.
                     </p>
                     <div className="flex gap-4 justify-center lg:justify-start pt-4">
                         <a href="#projects" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30">

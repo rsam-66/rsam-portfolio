@@ -1,4 +1,5 @@
-import { Mail, Linkedin, Github, MapPin, Send } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Linkedin, Github, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const contactLinks = [
     {
@@ -24,7 +25,48 @@ const contactLinks = [
     }
 ];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjggeaqj";
+
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
+    };
+
     return (
         <section id="contact" className="py-24 bg-white relative overflow-hidden">
             {/* Background Decorations */}
@@ -61,7 +103,7 @@ export default function Contact() {
 
                             <p className="text-slate-600 leading-relaxed mb-8">
                                 Saya adalah mahasiswa aktif di <strong>Telkom University</strong> dengan minat besar dalam
-                                <strong> Mobile Development</strong> dan <strong>Data Science</strong>. Memiliki rasa ingin tahu
+                                <strong> Mobile Development</strong> dan <strong>Web Development</strong>. Memiliki rasa ingin tahu
                                 tinggi terhadap teknologi, bertanggung jawab, solutif, dan mudah beradaptasi dalam berbagai situasi.
                             </p>
 
@@ -92,12 +134,33 @@ export default function Contact() {
                     {/* Contact Form */}
                     <div className="bg-slate-50 rounded-2xl p-8">
                         <h3 className="text-xl font-bold text-slate-900 mb-6">Send a Message</h3>
-                        <form className="space-y-5">
+
+                        {/* Success Message */}
+                        {status === 'success' && (
+                            <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-xl flex items-center gap-3">
+                                <CheckCircle className="text-green-600" size={20} />
+                                <p className="text-green-700 font-medium">Message sent successfully! I'll get back to you soon.</p>
+                            </div>
+                        )}
+
+                        {/* Error Message */}
+                        {status === 'error' && (
+                            <div className="mb-6 p-4 bg-red-100 border border-red-200 rounded-xl flex items-center gap-3">
+                                <AlertCircle className="text-red-600" size={20} />
+                                <p className="text-red-700 font-medium">Something went wrong. Please try again or email me directly.</p>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-5">
                             <div className="grid sm:grid-cols-2 gap-5">
                                 <div>
                                     <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
                                     <input
                                         type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="Your name"
                                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
                                     />
@@ -106,6 +169,10 @@ export default function Contact() {
                                     <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
                                     <input
                                         type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="your@email.com"
                                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
                                     />
@@ -115,6 +182,10 @@ export default function Contact() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Subject</label>
                                 <input
                                     type="text"
+                                    name="subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    required
                                     placeholder="What's this about?"
                                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
                                 />
@@ -122,6 +193,10 @@ export default function Contact() {
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                                 <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
                                     rows="5"
                                     placeholder="Tell me about your project..."
                                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white resize-none"
@@ -129,10 +204,20 @@ export default function Contact() {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2"
+                                disabled={status === 'loading'}
+                                className="w-full py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                <Send size={18} />
-                                Send Message
+                                {status === 'loading' ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send size={18} />
+                                        Send Message
+                                    </>
+                                )}
                             </button>
                         </form>
                     </div>
@@ -141,3 +226,4 @@ export default function Contact() {
         </section>
     );
 }
+
