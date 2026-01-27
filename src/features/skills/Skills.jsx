@@ -1,3 +1,5 @@
+import SkillTooltip from '../../components/ui/SkillTooltip';
+
 const skillCategories = [
     {
         title: "Frontend",
@@ -34,6 +36,8 @@ const skillCategories = [
     }
 ];
 
+const otherTechnologies = ["Vue.js", "Next.js", "Firebase", "Docker"];
+
 export default function Skills() {
     return (
         <section id="skills" className="py-24 bg-slate-50">
@@ -69,22 +73,24 @@ export default function Skills() {
                             {/* Skills List */}
                             <div className="space-y-5">
                                 {category.skills.map((skill, skillIndex) => (
-                                    <div key={skillIndex}>
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-medium text-slate-700">
-                                                {skill.name}
-                                            </span>
-                                            <span className="text-xs font-semibold text-blue-600">
-                                                {skill.level}%
-                                            </span>
+                                    <SkillTooltip key={skillIndex} skill={skill.name}>
+                                        <div className="cursor-pointer group/skill">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-sm font-medium text-slate-700 group-hover/skill:text-blue-600 transition-colors">
+                                                    {skill.name}
+                                                </span>
+                                                <span className="text-xs font-semibold text-blue-600">
+                                                    {skill.level}%
+                                                </span>
+                                            </div>
+                                            <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-linear-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-1000"
+                                                    style={{ width: `${skill.level}%` }}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                                            <div
-                                                className="h-full bg-linear-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-1000"
-                                                style={{ width: `${skill.level}%` }}
-                                            />
-                                        </div>
-                                    </div>
+                                    </SkillTooltip>
                                 ))}
                             </div>
                         </div>
@@ -95,13 +101,12 @@ export default function Skills() {
                 <div className="mt-16 text-center">
                     <p className="text-sm text-slate-500 mb-6">Other technologies I've worked with:</p>
                     <div className="flex flex-wrap justify-center gap-3">
-                        {["Vue.js", "Next.js", "Firebase", "Docker"].map((tech, index) => (
-                            <span
-                                key={index}
-                                className="px-4 py-2 bg-white border border-slate-200 text-slate-600 text-sm font-medium rounded-full hover:border-blue-300 hover:text-blue-600 transition-colors cursor-default"
-                            >
-                                {tech}
-                            </span>
+                        {otherTechnologies.map((tech, index) => (
+                            <SkillTooltip key={index} skill={tech}>
+                                <span className="px-4 py-2 bg-white border border-slate-200 text-slate-600 text-sm font-medium rounded-full hover:border-blue-300 hover:text-blue-600 transition-colors cursor-pointer">
+                                    {tech}
+                                </span>
+                            </SkillTooltip>
                         ))}
                     </div>
                 </div>
@@ -109,3 +114,4 @@ export default function Skills() {
         </section>
     );
 }
+
