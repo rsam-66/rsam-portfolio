@@ -41,10 +41,11 @@ export default function Navbar() {
 
             {/* Mobile Dropdown */}
             {isOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white border-b shadow-lg flex flex-col items-center py-6 gap-6">
-                    <a href="#hero" onClick={() => setIsOpen(false)}>Home</a>
-                    <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
-                    <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
+                <div className="md:hidden absolute top-full left-0 w-full bg-white border-b shadow-lg flex flex-col items-center py-6 gap-4">
+                    <a href="#hero" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="#projects" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Projects</a>
+                    <a href="#skills" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Skills</a>
+                    <a href="#contact" onClick={() => setIsOpen(false)} className="mt-2 px-6 py-2 bg-slate-900 text-white rounded-full hover:bg-slate-800 font-medium transition-colors">Contact Me</a>
                 </div>
             )}
         </nav>
