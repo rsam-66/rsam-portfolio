@@ -117,8 +117,8 @@ export default function SkillTooltip({ skill, children }) {
         <div className="relative block group">
             {children}
 
-            {/* Tooltip - uses group-hover for CSS-based visibility */}
-            <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 
+            {/* Tooltip - hidden on mobile, visible on hover for md+ screens */}
+            <div className="hidden md:block absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 lg:w-72 
                 opacity-0 invisible translate-y-2 
                 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
                 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
