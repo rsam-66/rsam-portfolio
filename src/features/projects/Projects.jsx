@@ -44,7 +44,7 @@ const projects = [
         description: "Website analisis hasil USG Kanker berbasis Model AI. Memungkinkan dokter untuk mengubah hasil analisis GradCam dengan menggunakan Konva.js.",
         contribution: "Front-End Development",
         tags: ["Vue.js", "Tailwind CSS", "Vite", "Konva.js"],
-        status: "Ongoing - HUMIC Engineering Internship",
+        status: "Done - HUMIC Engineering Internship",
         github: "https://github.com/rsam-66/Front-End_BreastCancer.git",
         link: "https://lumirabreast-cancer.vercel.app/",
         gradient: "from-purple-500 to-pink-600",
