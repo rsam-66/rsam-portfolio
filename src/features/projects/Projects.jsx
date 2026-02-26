@@ -64,7 +64,7 @@ export default function Projects() {
                     <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
                         My Work
                     </span>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">

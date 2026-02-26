@@ -79,7 +79,7 @@ export default function Contact() {
                     <span className="inline-block px-4 py-1.5 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
                         Get in Touch
                     </span>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
                         Let's <span className="gradient-text">Connect</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -122,7 +122,7 @@ export default function Contact() {
                                         </div>
                                         <div className="flex-1">
                                             <p className="text-xs text-slate-500 font-medium">{link.label}</p>
-                                            <p className="text-slate-800 font-semibold">{link.value}</p>
+                                            <p className="text-slate-800 font-semibold break-all">{link.value}</p>
                                         </div>
                                         <Send size={18} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
                                     </a>
