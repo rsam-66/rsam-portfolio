@@ -47,7 +47,7 @@ export default function Skills() {
                     <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
                         Expertise
                     </span>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
                         Skills & <span className="gradient-text">Technologies</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -56,7 +56,7 @@ export default function Skills() {
                 </div>
 
                 {/* Skills Grid */}
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {skillCategories.map((category, index) => (
                         <div
                             key={index}

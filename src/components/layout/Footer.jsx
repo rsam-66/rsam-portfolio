@@ -19,7 +19,7 @@ export default function Footer() {
     return (
         <footer className="bg-slate-900 text-white">
             <div className="max-w-7xl mx-auto px-6 py-16">
-                <div className="grid md:grid-cols-3 gap-12 mb-12">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 mb-12">
                     {/* Brand Column */}
                     <div className="space-y-4">
                         <a href="#" className="text-2xl font-bold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">

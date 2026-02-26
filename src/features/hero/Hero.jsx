@@ -8,7 +8,7 @@ export default function Hero() {
                     {/* <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide">
                         Available for Hire
                     </span> */}
-                    <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight">
                         Building Logic <br />
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-cyan-500">
                             Solving Problems.
