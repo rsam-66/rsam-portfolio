@@ -45,7 +45,7 @@ const projects = [
         contribution: "Front-End Development",
         tags: ["Vue.js", "Tailwind CSS", "Vite", "Konva.js"],
         github: "https://github.com/rsam-66/Front-End_BreastCancer.git",
-        link: "https://lumirabreast-cancer.vercel.app/",
+        link: "https://lumirabreast-cancer-flax.vercel.app/",
         gradient: "from-purple-500 to-pink-600",
         images: [
             "/images/projects/lumira/1.png",
